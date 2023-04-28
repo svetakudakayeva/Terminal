@@ -1,0 +1,124 @@
+1) Посмотреть, где я - pwd
+SergSv@Serg MINGW64 /d
+$ pwd
+/d
+
+2) Создать папку - mkdir folder_name 
+SergSv@Serg MINGW64 /d
+$ mkdir HW
+
+3) Перейти в папку - cd folder_name
+SergSv@Serg MINGW64 /d
+$ cd HW
+
+4) Создать 3 папки - mkdir folder_name1 folder_name2 folder_name3
+SergSv@Serg MINGW64 /d/HW
+$ mkdir folder1 folder2 folder3
+
+5) Зайти в любую папку - cd folder_name1
+SergSv@Serg MINGW64 /d/HW
+$ cd folder1
+
+6) Создать 5 файлов (3 txt, 2 json) - touch file_name1.txt file_name2.txt file_name3.txt file_name4.json file_name4.json
+SergSv@Serg MINGW64 /d/HW/folder1
+$ touch file1.txt file2.txt file3.txt file4.json file5.json
+
+7) Создать 3 папки mkdir folder_name4 folder_name5 folder_name6
+SergSv@Serg MINGW64 /d/HW/folder1
+$ mkdir folder4 folder5 folder6
+
+8) Вывести список содержимого папки - ls -la
+SergSv@Serg MINGW64 /d/HW/folder1
+$ ls -la
+total 4
+drwxr-xr-x 1 SergSv 197609 0 Apr 17 11:46 ./
+drwxr-xr-x 1 SergSv 197609 0 Apr 17 11:22 ../
+-rw-r--r-- 1 SergSv 197609 0 Apr 17 11:44 file1.txt
+-rw-r--r-- 1 SergSv 197609 0 Apr 17 11:44 file2.txt
+-rw-r--r-- 1 SergSv 197609 0 Apr 17 11:44 file3.txt
+-rw-r--r-- 1 SergSv 197609 0 Apr 17 11:44 file4.json
+-rw-r--r-- 1 SergSv 197609 0 Apr 17 11:44 file5.json
+drwxr-xr-x 1 SergSv 197609 0 Apr 17 11:46 folder4/
+drwxr-xr-x 1 SergSv 197609 0 Apr 17 11:46 folder5/
+drwxr-xr-x 1 SergSv 197609 0 Apr 17 11:46 folder6/
+
+9) Открыть любой txt файл - vim file_name.txt
+SergSv@Serg MINGW64 /d/HW/folder1
+$ vim file1.txt
+
+10) Написать туда что-набудь, любой текст - нажать клавишу I, набрать текст
+
+11) Сохранить и выйти - нажать клавишу Esc, ввести :wq и Enter
+SergSv@Serg MINGW64 /d/HW/folder1
+$ cat file1.txt
+Dorothy lived in the midst of
+great Kanzas prairies with
+Uncle Henry, who was a farmer,
+Ant Em, who was the farmer's wife,
+and Toto, who was a little black dog
+that Dorothy loved dearly.
+
+12) Выйти из папки на уровень выше - cd ..
+SergSv@Serg MINGW64 /d/HW/folder1
+$ cd ..
+
+13) Переместить любые 2 файла, которые вы создали, в любую другую папку - mv folder_name1{file_name1.txt,file_name2.txt} folder_name2
+SergSv@Serg MINGW64 /d/HW
+$ mv folder1{file2.txt,file3.txt} folder2
+
+14) Cкопировать любые 2 файла, которые вы создали, в любую другую папку - cp folder_name1{file_name1.json,file_name2.json} folder_name2
+SergSv@Serg MINGW64 /d/HW
+$ cp folder1/{file4.json,file5.json} folder3
+
+15) Найти файл по имени - find . -name file_name.txt
+SergSv@Serg MINGW64 /d/HW
+$ find folder1 -name "file*"
+folder1/file1.txt
+folder1/file4.json
+folder1/file5.json
+
+16) Просмотреть содержимое в реальном времени (команда tail) изучите как она работает - tail -f folder_name/file_name.txt
+SergSv@Senamerg MINGW64 /d/HW
+$ tail -f folder1/file1.txt | grep "Toto" 
+
+17) Вывести несколько первых строк из текстового файла - head -n folder_name/file_name.txt
+SergSv@Serg MINGW64 /d/HW
+$ head -n 3 folder1/file1.txt
+Dorothy lived in the midst of
+great Kanzas prairies with
+Uncle Henry, who was a farmer,
+
+18) Вывести несколько последних строк из текстового файла - tail -n folder_name/file_name.txt
+SergSv@Serg MINGW64 /d/HW
+$ tail -n 2 folder1/file1.txt
+and Toto, who was a little black dog
+that Dorothy loved dearly.
+
+19) Просмотреть содержимое длинного файла (команда less) изучите как она работает - less folder_name/file_name.txt
+SergSv@Serg MINGW64 /d/HW
+$ less folder1/file1.txt
+
+20) Вывести дату и время - date
+SergSv@Serg MINGW64 /d/HW
+$ date
+Mon Apr 17 13:51:34     2023
+
+Задание *
+1) Отправить http запрос на сервер http://162.55.220.72:5005/terminal-hw-request 
+curl -X GET http://162.55.220.72:5005/terminal-hw-request
+SergSv@Serg MINGW64 /d/HW
+$ curl -X GET http://162.55.220.72:5005/terminal-hw-request
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   232  100   232    0     0    800      0 --:--:-- --:--:-- --:--:--   800<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<title>404 Not Found</title>
+<h1>Not Found</h1>
+<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
+
+
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+
+
+
+SergSv@Serg MINGW64 /d/HW
+$
