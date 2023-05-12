@@ -1,0 +1,178 @@
+Termial. HW_2
+ 1. —делать папку dir_1
+mkdir dir_1
+ 2. «айти в папку dir_1
+cd dir_1
+ 3. —оздать папку inner_dir_1
+mkdir inner_dir_1
+ 4. ѕосмотреть где ты находишьс€
+pwd
+/d/dir_1
+ 5. Ќаход€сь в папке dir_1 создать пустой текстовый файл tf_1.txt
+touch tf_1.txt
+ 6. Ќаход€сь в папке dir_1 через команду cat создать текстовый файл tf_2.txt со следующими строками:
+- the first 1
+- the second 2
+- the third 3
+cat > tf_2.txt
+the first 1
+the second 2
+the third 3
+ 7. «айти в папку inner_dir_1
+cd inner_dir_1
+ 8. „ерез cat сделать текстовый файл tf_3.txt  c любыми строками
+cat > tf_3.txt
+Everybody loves the things you do
+From the way you talk
+To the way you move
+Everybody here is watching you
+'Cause you feel like home
+You're like a dream come true
+But if by chance you're here alone
+Can I have a moment
+Before I go?
+ 9. „ерез cat добавить в текстовый файл tf_3.txt строку Уthe second 2Ф
+cat >> tf_3.txt
+the second 2
+ 10. „ерез cat добавить в текстовый файл tf_3.txt строку Уthe sec 2Ф
+cat >> tf_3.txt
+the sec 2
+ 11. „ерез cat добавить в текстовый файл tf_2.txt строку Уthe sec 3Ф
+cat >> /d/dir_1/tf_2.txt
+the sec 3
+ 12. „ерез cat добавить в текстовый файл tf_3.txt строку Уthe SeCoNd 2Ф
+cat >> tf_3.txt
+the SeCoNd 2
+ 13. „ерез cat добавить в текстовый файл tf_2.txt строку Уthe seConD 2Ф
+cat >> /d/dir_1/tf_2.txt
+the seConD 2
+ 14. —делать текстовый файл tf_4.txt в котором будет 15 строк.
+seq 15 | cat > tf_4.txt
+ 15. —делать текстовый файл tF_5.txt в котором будет 13 строк.
+seq 13 | cat > tf_5.txt
+ 16. ¬ывести список всех файлов в папке.
+ls
+tf_3.txt  tf_4.txt  tf_5.txt
+ 17. ¬ыйти из папки inner_dir_1
+cd ..
+ 18. ¬ывести содержимое файла tf_3.txt в терминал.
+cat /d/dir_1/inner_dir_1/tf_3.txt
+Everybody loves the things you do
+From the way you talk
+To the way you move
+Everybody here is watching you
+'Cause you feel like home
+You're like a dream come true
+But if by chance you're here alone
+Can I have a moment
+Before I go?
+the second 2
+the sec 2
+the SeCoNd 2
+ 19. Ќайти путь к файлу tf_4.txt
+find -name "tf_4.txt"
+./inner_dir_1/tf_4.txt
+ 20. ќтчистить файл tf_4.txt от содержимого без удалени€ самого файла.
+> ./inner_dir_1/tf_4.txt
+ 21. Ќайти путь к файлам у которых есть  УtfФ в названии.
+ find -type f -name "*tf*"
+./inner_dir_1/tf_3.txt
+./inner_dir_1/tf_4.txt
+./inner_dir_1/tf_5.txt
+./tf_1.txt
+./tf_2.txt
+ 22. Ќайти путь к файлам у которых есть  УtfФ в названии и буквы в любом регистре.
+ find -type f -iname "*tf*"
+./inner_dir_1/tf_3.txt
+./inner_dir_1/tf_4.txt
+./inner_dir_1/tf_5.txt
+./tf_1.txt
+./tf_2.txt
+ 23. Ќайти строки в файлах где есть комбинаци€ букв УsecФ в текущей папке
+grep "sec" *.*
+tf_2.txt:the second 2
+tf_2.txt:the sec 3
+ 24. Ќайти строки в файлах где есть комбинаци€ букв УsecФ в любом регистре в текущей папке
+ grep -i "sec" *.*
+tf_2.txt:the second 2
+tf_2.txt:the sec 3
+tf_2.txt:the seConD 2
+ 25. Ќайти строки в файлах где есть только комбинаци€ букв УsecФ в текущей папке
+ grep -w "sec" *.*
+tf_2.txt:the sec 3
+ 26. Ќайти строки в файлах где есть только комбинаци€ букв УsecФ в любом регистре в текущей папке
+grep -w -i "sec" *.*
+tf_2.txt:the sec 3
+ 27. Ќайти строки в файлах где есть комбинаци€ букв УsecondФ в текущей папке
+ grep "second" *.*
+tf_2.txt:the second 2
+ 28. Ќайти строки в файлах где есть комбинаци€ букв УsecondФ в любом регистре в текущей папке
+grep -i "second" *.*
+tf_2.txt:the second 2
+tf_2.txt:the seConD 2
+ 29. Ќайти строки в файлах где есть комбинаци€ букв УsecondФ во всех папках ниже уровнем
+grep "second" ./*/*
+./inner_dir_1/tf_3.txt:the second 2
+ 30. Ќайти только путь и название файла в строках которых есть комбинаци€ букв УsecondФ в текущей папке
+grep -ls "second" *.*
+tf_2.txt
+ 31. Ќайти все строки во всех файлах где нет комбинации УsecondФ
+ grep -rv "second"
+inner_dir_1/tf_3.txt:Everybody loves the things you do
+inner_dir_1/tf_3.txt:From the way you talk
+inner_dir_1/tf_3.txt:To the way you move
+inner_dir_1/tf_3.txt:Everybody here is watching you
+inner_dir_1/tf_3.txt:'Cause you feel like home
+inner_dir_1/tf_3.txt:You're like a dream come true
+inner_dir_1/tf_3.txt:But if by chance you're here alone
+inner_dir_1/tf_3.txt:Can I have a moment
+inner_dir_1/tf_3.txt:Before I go?
+inner_dir_1/tf_3.txt:the sec 2
+inner_dir_1/tf_3.txt:the SeCoNd 2
+inner_dir_1/tf_5.txt:1
+inner_dir_1/tf_5.txt:2
+inner_dir_1/tf_5.txt:3
+inner_dir_1/tf_5.txt:4
+inner_dir_1/tf_5.txt:5
+inner_dir_1/tf_5.txt:6
+inner_dir_1/tf_5.txt:7
+inner_dir_1/tf_5.txt:8
+inner_dir_1/tf_5.txt:9
+inner_dir_1/tf_5.txt:10
+inner_dir_1/tf_5.txt:11
+inner_dir_1/tf_5.txt:12
+inner_dir_1/tf_5.txt:13
+tf_2.txt:the first 1
+tf_2.txt:the third 3
+tf_2.txt:the sec 3
+tf_2.txt:the seConD 2
+ 32. Ќайти только название и путь к файлам где нет комбинации УsecondФ
+ grep -rL "second"
+inner_dir_1/tf_4.txt
+inner_dir_1/tf_5.txt
+tf_1.txt
+ 33. ¬ывести в терминал 4 последних строк любого текстового файла
+ tail -4 ./inner_dir_1/tf_3.txt
+Before I go?
+the second 2
+the sec 2
+the SeCoNd 2
+ 34. ¬ывести в терминал 4 первые строки любого текстового файла.
+ head -4 ./inner_dir_1/tf_3.txt
+Everybody loves the things you do
+From the way you talk
+To the way you move
+Everybody here is watching you
+ 35.  оманда в одну строку. —оздать папку и создать текстовый файл с содержимым.
+mkdir inner_dir_2 && echo "This is a new file" > inner_dir_2/tf_6.txt
+ 36.  оманда в одну строку. ѕереместить в любую одну папку текстовые файлы у которых в содержимом есть слово УsecФ
+grep -rl "sec" | xargs mv -t inner_dir_2
+ 37.  оманда в одну строку. —копировать в любую одну папку текстовые файлы у которых в содержимом есть слово УsecФ
+grep -rl "sec" | xargs cp -t inner_dir_1
+ 38.  оманда в одну строку. Ќайти все строки c УsecФ во всех текстовых файлах, скопировать и вставить эти строки в один новый созданный текстовый файл.
+grep -rh "sec" | xargs -I{} echo {} > tf_7.txt
+ 39.  оманда в одну строку. ”далить текстовые файлы у которых в содержимом есть слово УsecФ
+grep -rl "sec" | xargs -I{} rm -f {}
+ 40. ѕросто вывести в терминал строку УGood job!!Ф
+echo "Good job!!"
+Good job!!
