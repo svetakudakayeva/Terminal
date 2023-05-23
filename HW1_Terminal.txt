@@ -117,8 +117,24 @@ $ curl -X GET http://162.55.220.72:5005/terminal-hw-request
 
 
 2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+Создаем файл с кодом скрипта nano script.sh
+В файле записываем специальный служебный комментарий #!/bin/bash, с помощью которого скрипт будет выполняться.
+Прописываем команды скрипта:
+cd folder_name
+mkdir folder_name1 folder_name2 folder_name3
+cd folder_name1
+touch file_name1.txt file_name2.txt file_name3.txt file_name4.json file_name4.json
+mkdir folder_name4 folder_name5 folder_name6
+ls -la
+mv folder_name1{file_name1.txt,file_name2.txt} folder_name2
+Сохранение скрипта и выход Ctrl+O Enter Ctrl+X
+Делаем скрипт исполняемым chmod +X skript.sh
+Запустить скрипт ./script.sh
 
 
 
-SergSv@Serg MINGW64 /d/HW
-$
+
+
+
+
+
